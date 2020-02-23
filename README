@@ -1,7 +1,7 @@
-##GOF design patterns showcase
+### GOF design patterns showcase
 
 This application showcases the use of some of the GOF design patterns.
-Specifically, it includes 5 examples from them different types of GOF design patterns:
+Specifically, it includes 5 examples from the different types of GOF design patterns:
 
 Creational:
 	• Factory method
@@ -41,6 +41,7 @@ by printing both orderings to stdout.
 Operation instruction:
 The application takes no commandline parameters.
 The ShapeCollection is prefilled with some example shapes:
+
 shapeCollection.add(ShapeWithAreaFactory.getShape("Circle", 1));
 shapeCollection.add(ShapeWithAreaFactory.getShape("Rectangle", 1, 2));
 shapeCollection.add(ShapeWithAreaFactory.getShape("Circle", 3));
