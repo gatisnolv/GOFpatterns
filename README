@@ -1,0 +1,79 @@
+##GOF design patterns showcase
+
+This application showcases the use of some of the GOF design patterns.
+Specifically, it includes 5 examples from them different types of GOF design patterns:
+
+Creational:
+	• Factory method
+Structural:
+	• Adapter
+Behavioral:
+	• Iterator
+	• Observer
+	• Template method
+
+Factory method:
+The application is an abstract inventory of circles and rectangles.
+It contains has a collection of shapes (ShapeCollection), which is populated with shapes obtained from a factory 
+method ('getShape' method in ShapeWithAreaFactory). 
+
+Iterator:
+ShapeCollection has an 'iterator' method which returns an iterator with a simple interface (next and hasNext methods). 
+The iterator is showcased by using it to print the various shapes populated in the ShapeCollection to stdout. 
+
+Adapter:
+The simple classes Circle and Rectangle are adaptees to their respective 'WithArea' counterpart classes (adapters) 
+which implement the ShapeWithArea interface, so the area can be retrieved in a consistent manner from either shape 
+through the interface. 
+
+Observer:
+There is also a Scale class which implements the Observable interface, while the 'WithArea' shape classes implement 
+the Observer interface. The observer pattern is showcased by scaling the shapes and once again printing the collection 
+to stdout.
+
+Template method:
+There is an abstract PrintStrategy class which defines a 'print' method for printing the different shapes and an abstract 
+'sort' method for defining the order of the output. Classes AscendingAreaPrintStrategy and DescendingAreaPrintStrategy 
+implement the 'sort' method to provide the expected ordering implied by the class names. This is showcased similarly, 
+by printing both orderings to stdout.
+
+
+Operation instruction:
+The application takes no commandline parameters.
+The ShapeCollection is prefilled with some example shapes:
+shapeCollection.add(ShapeWithAreaFactory.getShape("Circle", 1));
+shapeCollection.add(ShapeWithAreaFactory.getShape("Rectangle", 1, 2));
+shapeCollection.add(ShapeWithAreaFactory.getShape("Circle", 3));
+shapeCollection.add(ShapeWithAreaFactory.getShape("Rectangle", 4, 2));
+shapeCollection.add(ShapeWithAreaFactory.getShape("Rectangle", 4, 5));
+
+After that, this is the previously described resulting output that gets printed to stdout:
+
+Iterator demo:
+Circle.         Radius: 1, area: 3.141592653589793
+Rectangle.      Width x length: 2 x 1, area: 2.0
+Circle.         Radius: 3, area: 28.274333882308138
+Rectangle.      Width x length: 2 x 4, area: 8.0
+Rectangle.      Width x length: 5 x 4, area: 20.0
+
+Observer demo:
+Circle.         Radius: 2, area: 12.566370614359172
+Rectangle.      Width x length: 4 x 2, area: 8.0
+Circle.         Radius: 6, area: 113.09733552923255
+Rectangle.      Width x length: 4 x 8, area: 32.0
+Rectangle.      Width x length: 10 x 8, area: 80.0
+
+Strategy demo:
+Ascending area print strategy:
+Rectangle.      Width x length: 4 x 2, area: 8.0
+Circle.         Radius: 2, area: 12.566370614359172
+Rectangle.      Width x length: 4 x 8, area: 32.0
+Rectangle.      Width x length: 10 x 8, area: 80.0
+Circle.         Radius: 6, area: 113.09733552923255
+
+Descending area print strategy:
+Circle.         Radius: 6, area: 113.09733552923255
+Rectangle.      Width x length: 10 x 8, area: 80.0
+Rectangle.      Width x length: 4 x 8, area: 32.0
+Circle.         Radius: 2, area: 12.566370614359172
+Rectangle.      Width x length: 4 x 2, area: 8.0
